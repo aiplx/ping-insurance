@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: #f8fafc; scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: #f8fafc; scroll-behavior: smooth; overflow-x: hidden; }
         .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(15px); }
     </style>
 </head>
-<body class="min-h-screen">
-    <div id="header-placeholder"></div>
+<body>
+    <nav class="fixed w-full top-0 left-0 z-[100] glass border-b border-white/5 h-20"><div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between"><div class="text-2xl font-bold tracking-tighter flex items-center text-white"><a href="/" class="flex items-center hover:text-blue-400 transition"><span class="text-blue-500 mr-2">●</span> Ping Liang</a></div><div class="hidden md:flex space-x-10 text-sm font-semibold uppercase tracking-widest text-slate-300"><a href="/about.html" class="hover:text-blue-400 transition">背景</a><a href="/license.html" class="hover:text-blue-400 transition">资质</a><a href="/services.html" class="hover:text-blue-400 transition">服务</a><a href="https://wa.me/15144025575" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition border-none text-center">联系</a></div></div></nav>
     <div class="max-w-4xl mx-auto px-6 py-32">
-        <h1 class="text-5xl font-bold mb-16 tracking-tighter">双重维度：数据与风险</h1>
+        <h1 class="text-5xl font-bold mb-16 tracking-tighter text-white">双重维度：数据与风险</h1>
         <div class="space-y-12">
             <div class="p-8 bg-white/5 rounded-3xl border border-white/5">
                 <h3 class="text-blue-400 font-bold text-xl mb-4">图卢兹经济学院 (TSE) 硕士</h3>
@@ -30,10 +30,5 @@
             <a href="/services.html" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-xl">查看专业服务</a>
         </div>
     </div>
-    <script>
-        fetch('/components/header.html').then(r => r.text()).then(html => {
-            document.getElementById('header-placeholder').innerHTML = html;
-        });
-    </script>
 </body>
 </html>

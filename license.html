@@ -8,25 +8,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: #f8fafc; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: #f8fafc; scroll-behavior: smooth; overflow-x: hidden; }
         .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(15px); }
     </style>
 </head>
-<body class="min-h-screen pt-32">
-    <div id="header-placeholder"></div>
-    
-    <div class="max-w-4xl mx-auto px-6">
-        <h1 class="text-4xl font-bold mb-12 text-center">官方认证与监管信息</h1>
-        
+<body>
+    <nav class="fixed w-full top-0 left-0 z-[100] glass border-b border-white/5 h-20"><div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between"><div class="text-2xl font-bold tracking-tighter flex items-center text-white"><a href="/" class="flex items-center hover:text-blue-400 transition"><span class="text-blue-500 mr-2">●</span> Ping Liang</a></div><div class="hidden md:flex space-x-10 text-sm font-semibold uppercase tracking-widest text-slate-300"><a href="/about.html" class="hover:text-blue-400 transition">背景</a><a href="/license.html" class="hover:text-blue-400 transition">资质</a><a href="/services.html" class="hover:text-blue-400 transition">服务</a><a href="https://wa.me/15144025575" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition border-none text-center">联系</a></div></div></nav>
+    <div class="max-w-4xl mx-auto px-6 py-32">
+        <h1 class="text-4xl font-bold mb-12 text-center text-white">官方认证与监管信息</h1>
         <div class="bg-white/5 border border-white/10 rounded-3xl p-12 relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-8 opacity-5"><i class="fas fa-stamp text-9xl"></i></div>
-            
+            <div class="absolute top-0 right-0 p-8 opacity-5 text-9xl"><i class="fas fa-stamp"></i></div>
             <div class="space-y-8 relative z-10">
                 <div>
                     <h2 class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">安省金融服务监管局 (FSRA)</h2>
                     <p class="text-3xl font-extrabold">LICENCE NO: 26244390</p>
                 </div>
-                
                 <div class="grid md:grid-cols-2 gap-8 py-8 border-y border-white/5">
                     <div>
                         <h3 class="text-slate-500 text-xs font-bold uppercase mb-2">授权类别</h3>
@@ -37,28 +33,18 @@
                         <p class="text-lg">2028年1月22日</p>
                     </div>
                 </div>
-                
                 <div>
                     <h3 class="text-slate-500 text-xs font-bold uppercase mb-2">所属机构</h3>
                     <p class="text-xl font-bold">Industrial Alliance Insurance and Financial Services Inc. (iA)</p>
                 </div>
-
                 <div class="p-6 bg-blue-500/10 rounded-2xl text-sm leading-relaxed italic">
                     "Authorized to act as an accident and sickness insurance agent unless this licence is lawfully suspended or revoked."
                 </div>
             </div>
         </div>
-        
         <div class="mt-12 text-center text-slate-500 text-sm">
             <p>监管方: Financial Services Regulatory Authority of Ontario (FSRA)</p>
         </div>
     </div>
-
-    <script>
-        // 模拟组件加载 (因为是纯静态HTML)
-        fetch('/components/header.html').then(r => r.text()).then(html => {
-            document.getElementById('header-placeholder').innerHTML = html;
-        });
-    </script>
 </body>
 </html>
