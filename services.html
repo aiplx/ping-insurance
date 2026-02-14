@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心服务 | Ping Liang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: #f8fafc; }
+    </style>
+</head>
+<body class="min-h-screen pt-32">
+    <div id="header-placeholder"></div>
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <h1 class="text-5xl font-bold mb-16 text-center">安省专业保障方案</h1>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Health Insurance Card -->
+            <div class="bg-white/5 border border-white/10 rounded-3xl p-10 hover:bg-white/[0.08] transition">
+                <div class="w-14 h-14 bg-red-500/20 rounded-2xl flex items-center justify-center mb-8">
+                    <i class="fas fa-shield-virus text-red-400 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">深度健康保障 (CI & Health)</h3>
+                <p class="text-slate-400 mb-6 leading-relaxed">
+                    在安省，大病保障不仅是医疗开支的补充，更是维持家庭生活质量的基石。我利用统计背景，分析高发疾病概率，为您匹配最科学的保额，涵盖重大疾病、伤残补偿及高端医疗。
+                </p>
+                <a href="https://wa.me/15144025575" class="text-blue-400 font-bold flex items-center">
+                    定制方案申请 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Wealth Card -->
+            <div class="bg-white/5 border border-white/10 rounded-3xl p-10 hover:bg-white/[0.08] transition">
+                <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-8">
+                    <i class="fas fa-piggy-bank text-blue-400 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">分红资产配置 (Participating Life)</h3>
+                <p class="text-slate-400 mb-6 leading-relaxed">
+                    利用计量经济学模型，模拟分红险在不同市场环境下的表现。通过 iA Financial Group 的优质产品，为您构建长线的避税增值通道，实现家族财富的稳健传承。
+                </p>
+                <a href="https://wa.me/15144025575" class="text-blue-400 font-bold flex items-center">
+                    查看数据演示 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        fetch('/components/header.html').then(r => r.text()).then(html => {
+            document.getElementById('header-placeholder').innerHTML = html;
+        });
+    </script>
+</body>
+</html>
