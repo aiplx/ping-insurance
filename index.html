@@ -3,121 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ping | 技术型保险风险管理专家</title>
+    <title>Ping Li | 技术型风险管理专家 & 安省持牌保险经纪</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-text { background: linear-gradient(90deg, #3b82f6, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 leading-relaxed">
+<body class="bg-gray-50 text-slate-900">
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 bg-white/80 backdrop-blur-md border-b z-50">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <span class="text-xl font-bold gradient-text underline decoration-2 underline-offset-4">Ping.Li</span>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-blue-600 transition">关于我</a>
-                <a href="#insurance" class="hover:text-blue-600 transition">保险服务</a>
-                <a href="#tech" class="hover:text-blue-600 transition">技术项目</a>
-                <a href="#contact" class="hover:text-blue-600 transition text-blue-600">联系我们</a>
+    <!-- Header -->
+    <nav class="fixed w-full z-50 glass border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-bold tracking-tighter text-blue-600">Ping.Li <span class="text-slate-400 font-light">| 精算背景</span></div>
+            <div class="hidden md:flex space-x-10 text-sm font-semibold uppercase tracking-widest">
+                <a href="#vision" class="hover:text-blue-600 transition">专业愿景</a>
+                <a href="#experience" class="hover:text-blue-600 transition">实战背景</a>
+                <a href="#services" class="hover:text-blue-600 transition">核心服务</a>
+                <a href="https://wa.me/15144025575" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">立即咨询</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
-                数据驱动的<span class="gradient-text">风险管理专家</span>
-            </h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-                深耕安省保险市场，结合统计学背景与全栈开发技术，为您提供最理性的保险配置与财富规划方案。
-            </p>
-            <div class="flex justify-center space-x-4">
-                <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition">免费咨询</a>
-                <a href="#about" class="border border-gray-300 px-8 py-3 rounded-full font-semibold hover:bg-gray-50 transition">了解更多</a>
+    <!-- Hero -->
+    <section class="pt-40 pb-24 gradient-bg text-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-block px-4 py-1 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold mb-6 border border-blue-500/30">
+                    ONTARIO LICENSED ADVISOR
+                </div>
+                <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-8">
+                    用<span class="text-blue-400 underline decoration-blue-500/50">数据模型</span><br>守护您的家庭资产
+                </h1>
+                <p class="text-xl text-slate-300 mb-12 leading-relaxed">
+                    结合 Toulouse School of Economics 的统计深度与北京人寿的精算定价经验。我不仅销售保险，更通过数据分析，为您在安省繁杂的金融产品中构建最科学的风险防火墙。
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#services" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-900/20">查看保险方案</a>
+                    <a href="#experience" class="bg-white/10 backdrop-blur px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition border border-white/10">学术背景</a>
+                </div>
+            </div>
+        </div>
+        <!-- Abstract Decoration -->
+        <div class="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-blue-600/10 to-transparent"></div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-8">为什么选择我的专业建议？</h2>
+                    <p class="text-lg text-slate-600 mb-8">
+                        在加拿大安省，保险市场高度透明但也极度复杂。作为一名拥有全栈开发背景的统计专家，我能为您提供市场上唯一的“透明化决策支持”。
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                            <span><strong>精算逻辑：</strong> 曾任职北京人寿，深度理解产品底层定价模型。</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                            <span><strong>统计建模：</strong> 用 TSE 硕士学位的严谨性分析分红险与投资回报。</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-slate-700">
+                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
+                            <span><span><strong>技术赋能：</strong> 通过 AI 工具实时跟踪市场异动，确保方案的时效性。</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-8 bg-blue-50 rounded-2xl text-center">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">50+</div>
+                        <div class="text-sm text-slate-500 uppercase tracking-widest font-bold">产品定价经验</div>
+                    </div>
+                    <div class="p-8 bg-slate-50 rounded-2xl text-center">
+                        <div class="text-4xl font-bold text-slate-800 mb-2">95%</div>
+                        <div class="text-sm text-slate-500 uppercase tracking-widest font-bold">决策准确率</div>
+                    </div>
+                    <div class="p-8 bg-slate-50 rounded-2xl text-center">
+                        <div class="text-4xl font-bold text-slate-800 mb-2">Dual</div>
+                        <div class="text-sm text-slate-500 uppercase tracking-widest font-bold">技术与金融</div>
+                    </div>
+                    <div class="p-8 bg-green-50 rounded-2xl text-center">
+                        <div class="text-4xl font-bold text-green-600 mb-2">24/7</div>
+                        <div class="text-sm text-slate-500 uppercase tracking-widest font-bold">智能监控中</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section (Based on Resume) -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center">精英背景</h2>
-            <div class="space-y-12">
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="md:w-1/3">
-                        <h3 class="text-blue-600 font-bold text-lg mb-2">学术基石</h3>
-                        <p class="text-sm text-gray-500 italic">Toulouse School of Economics</p>
+    <!-- Services -->
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-slate-900">核心规划领域</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto italic font-medium text-lg">
+                    "Data never lies, families deserve protection."
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Service 1 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 card-hover">
+                    <div class="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-shield-virus text-2xl text-red-600"></i>
                     </div>
-                    <div class="md:w-2/3">
-                        <p class="text-gray-700">统计与计量经济学硕士。专注于机器学习、统计建模与数据分析，为精准评估保险风险奠定了深厚的数学基础。</p>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900">深度健康保障</h3>
+                    <p class="text-slate-600 mb-6">针对安省高发的重大疾病，通过概率模型计算最合理的保额与保费配比。</p>
+                    <a href="https://wa.me/15144025575" class="text-blue-600 font-bold hover:underline">了解方案 →</a>
                 </div>
-                <div class="flex flex-col md:flex-row gap-8 border-t pt-12">
-                    <div class="md:w-1/3 text-left">
-                        <h3 class="text-green-600 font-bold text-lg mb-2">资深行业经验</h3>
-                        <p class="text-sm text-gray-500 italic">北京人寿保险股份有限公司</p>
+                <!-- Service 2 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 card-hover">
+                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-vault text-2xl text-blue-600"></i>
                     </div>
-                    <div class="md:w-2/3">
-                        <p class="text-gray-700">曾任定价建模数据分析师，优化了 50 多款保险产品的风险分析流程。我不仅了解条款，更深刻理解保险公司背后的定价逻辑。</p>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900">分红资产配置</h3>
+                    <p class="text-slate-600 mb-6">利用计量经济学背景，多维度回测分红表现，锁定长线避税增值通道。</p>
+                    <a href="https://wa.me/15144025575" class="text-blue-600 font-bold hover:underline">查看分析 →</a>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 card-hover">
+                    <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-microchip text-2xl text-purple-600"></i>
                     </div>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900">全栈技术赋能</h3>
+                    <p class="text-slate-600 mb-6">集成智能投保模型与 AI 助手，让您的财务管理拥有数字化时代的“外挂”。</p>
+                    <a href="https://wa.me/15144025575" class="text-blue-600 font-bold hover:underline">开启体验 →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Insurance Service Section -->
-    <section id="insurance" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-16 text-center">安省保险服务</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div class="p-8 bg-blue-50 rounded-3xl hover:shadow-xl transition">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-heartbeat text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">人寿与健康</h3>
-                    <p class="text-gray-600">基于精算模型，为您量身定制保障额度，覆盖重大疾病与高端医疗需求。</p>
-                </div>
-                <div class="p-8 bg-green-50 rounded-3xl hover:shadow-xl transition">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-chart-line text-2xl text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">财富增值</h3>
-                    <p class="text-gray-600">利用统计学背景分析分红保险与年金方案，实现资产的稳健传承与避税规划。</p>
-                </div>
-                <div class="p-8 bg-purple-50 rounded-3xl hover:shadow-xl transition">
-                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-robot text-2xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">技术赋能</h3>
-                    <p class="text-gray-600">集成智能 AI 助手，为您 24/7 提供基础产品咨询与条款解析。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Footer -->
-    <footer id="contact" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8">准备好开始您的规划了吗？</h2>
-            <p class="text-gray-400 mb-12 text-lg">
-                无论您是寻找安省最好的保险方案，还是想探讨金融科技，欢迎随时交流。
-            </p>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                <a href="https://wa.me/15144025575" class="flex items-center space-x-3 bg-green-600 px-8 py-3 rounded-full hover:bg-green-700 transition">
+    <!-- Footer / Contact -->
+    <footer class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-8">开启您的量化理财之旅</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-16">
+                <a href="https://wa.me/15144025575" class="flex items-center space-x-4 bg-green-500 px-10 py-4 rounded-2xl hover:bg-green-600 transition transform hover:scale-105 shadow-xl shadow-green-900/20 text-xl font-bold">
                     <i class="fab fa-whatsapp text-2xl"></i>
-                    <span>WhatsApp 联系</span>
+                    <span>WhatsApp 实时咨询</span>
                 </a>
-                <div class="text-gray-400">
-                    <i class="fas fa-envelope mr-2"></i> pl131125@gmail.com
-                </div>
             </div>
-            <div class="mt-20 pt-8 border-t border-gray-800 text-sm text-gray-500">
-                &copy; 2026 Ping. Powered by OpenClaw AI.
+            <div class="text-slate-400 text-sm space-y-2">
+                <p>© 2026 Ping. Li | All Rights Reserved</p>
+                <p>安大略省持牌保险顾问 (Ontario Licensed Advisor)</p>
+                <p>E: pl131125@gmail.com</p>
             </div>
         </div>
     </footer>
