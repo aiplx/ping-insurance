@@ -6,157 +6,125 @@
     <title>Ping Li | 技术型风险管理专家 & 安省持牌保险经纪</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
-        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px); }
+        .dark-gradient { background: radial-gradient(circle at top right, #1e293b, #0f172a); }
+        .hero-blob {
+            position: absolute; width: 500px; height: 500px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
+            filter: blur(80px); border-radius: 50%; z-index: 0; animation: float 10s infinite alternate;
+        }
+        @keyframes float { from { transform: translate(0, 0); } to { transform: translate(100px, 50px); } }
+        .calculator-card { background: rgba(255, 255, 255, 0.05); border: 1px border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="bg-gray-50 text-slate-900">
+<body class="bg-[#0f172a] text-slate-200">
 
-    <!-- Header -->
-    <nav class="fixed w-full z-50 glass border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-2xl font-bold tracking-tighter text-blue-600">Ping.Li <span class="text-slate-400 font-light">| 精算背景</span></div>
-            <div class="hidden md:flex space-x-10 text-sm font-semibold uppercase tracking-widest">
-                <a href="#vision" class="hover:text-blue-600 transition">专业愿景</a>
-                <a href="#experience" class="hover:text-blue-600 transition">实战背景</a>
-                <a href="#services" class="hover:text-blue-600 transition">核心服务</a>
-                <a href="https://wa.me/15144025575" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">立即咨询</a>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass border-b border-white/10 text-slate-900">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between text-white">
+            <div class="text-2xl font-bold tracking-tighter flex items-center">
+                <span class="text-blue-500 mr-2">●</span> Ping.Li
+            </div>
+            <div class="hidden md:flex space-x-10 text-sm font-semibold uppercase tracking-widest opacity-80">
+                <a href="#about" class="hover:text-blue-400 transition">专业背景</a>
+                <a href="#services" class="hover:text-blue-400 transition">服务</a>
+                <a href="#calc" class="hover:text-blue-400 transition text-blue-400">复利演算</a>
+                <a href="https://wa.me/15144025575" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition border-none">立即对话</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="pt-40 pb-24 gradient-bg text-white overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="max-w-3xl">
-                <div class="inline-block px-4 py-1 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold mb-6 border border-blue-500/30">
-                    ONTARIO LICENSED ADVISOR
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="hero-blob top-20 -right-20"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    <span>ONTARIO LICENSED ADVISOR</span>
                 </div>
-                <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-8">
-                    用<span class="text-blue-400 underline decoration-blue-500/50">数据模型</span><br>守护您的家庭资产
+                <h1 class="text-6xl md:text-8xl font-bold leading-none mb-8 tracking-tighter">
+                    让风险管理<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">变成科学</span>
                 </h1>
-                <p class="text-xl text-slate-300 mb-12 leading-relaxed">
-                    结合 Toulouse School of Economics 的统计深度与北京人寿的精算定价经验。我不仅销售保险，更通过数据分析，为您在安省繁杂的金融产品中构建最科学的风险防火墙。
+                <p class="text-xl text-slate-400 mb-12 max-w-lg leading-relaxed font-light">
+                    在这里，精算逻辑取代直觉感官。作为一名深耕安省的统计专家，我将全栈开发思维引入财富规划，为您构建数字时代的资产防御体系。
                 </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#services" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-lg shadow-blue-900/20">查看保险方案</a>
-                    <a href="#experience" class="bg-white/10 backdrop-blur px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition border border-white/10">学术背景</a>
+                <div class="flex items-center space-x-6">
+                    <a href="#calc" class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-500 transition shadow-2xl shadow-blue-500/20">开始资产演算</a>
+                    <a href="#services" class="text-slate-300 hover:text-white font-bold border-b-2 border-slate-700 pb-1 transition">查看服务领域</a>
+                </div>
+            </div>
+
+            <!-- Simple Interactive Component: ROI Teaser -->
+            <div class="calculator-card p-10 rounded-[40px] shadow-2xl" data-aos="zoom-in">
+                <h3 class="text-2xl font-bold mb-6 text-white">资产复利演算预览</h3>
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between mb-4 text-sm font-bold text-slate-400 uppercase tracking-widest">
+                            <span>初始年存入 (CAD)</span>
+                            <span class="text-blue-400" id="deposit-val">$10,000</span>
+                        </div>
+                        <input type="range" min="2000" max="50000" value="10000" step="1000" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500" id="deposit-slider">
+                    </div>
+                    <div class="pt-6 border-t border-white/5">
+                        <p class="text-sm text-slate-500 mb-2 font-medium italic">25年后预估潜在资产 (以分红险历史均值估算):</p>
+                        <div class="text-5xl font-extrabold text-emerald-400 tracking-tighter" id="result-val">$635,400</div>
+                    </div>
+                    <p class="text-[10px] text-slate-500">*数据基于统计模型推演，实际结果受具体产品及分红率影响。咨询获取精准方案。</p>
                 </div>
             </div>
         </div>
-        <!-- Abstract Decoration -->
-        <div class="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-blue-600/10 to-transparent"></div>
     </section>
 
-    <!-- Vision Section -->
-    <section id="vision" class="py-24 bg-white">
+    <!-- Stats Section -->
+    <section class="py-20 bg-slate-900/50">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold mb-8">为什么选择我的专业建议？</h2>
-                    <p class="text-lg text-slate-600 mb-8">
-                        在加拿大安省，保险市场高度透明但也极度复杂。作为一名拥有全栈开发背景的统计专家，我能为您提供市场上唯一的“透明化决策支持”。
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start space-x-3 text-slate-700">
-                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
-                            <span><strong>精算逻辑：</strong> 曾任职北京人寿，深度理解产品底层定价模型。</span>
-                        </li>
-                        <li class="flex items-start space-x-3 text-slate-700">
-                            <li class="flex items-start space-x-3 text-slate-700">
-                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
-                            <span><strong>统计建模：</strong> 用 TSE 硕士学位的严谨性分析分红险与投资回报。</span>
-                        </li>
-                        <li class="flex items-start space-x-3 text-slate-700">
-                            <i class="fas fa-check-circle text-blue-500 mt-1"></i>
-                            <span><span><strong>技术赋能：</strong> 通过 AI 工具实时跟踪市场异动，确保方案的时效性。</span>
-                        </li>
-                    </ul>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-5xl font-bold text-white mb-2 tracking-tighter">50+</div>
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest">定价建模项目</div>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-8 bg-blue-50 rounded-2xl text-center">
-                        <div class="text-4xl font-bold text-blue-600 mb-2">50+</div>
-                        <div class="text-sm text-slate-500 uppercase tracking-widest font-bold">产品定价经验</div>
-                    </div>
-                    <div class="p-8 bg-slate-50 rounded-2xl text-center">
-                        <div class="text-4xl font-bold text-slate-800 mb-2">95%</div>
-                        <div class="text-sm text-slate-500 uppercase tracking-widest font-bold">决策准确率</div>
-                    </div>
-                    <div class="p-8 bg-slate-50 rounded-2xl text-center">
-                        <div class="text-4xl font-bold text-slate-800 mb-2">Dual</div>
-                        <div class="text-sm text-slate-500 uppercase tracking-widest font-bold">技术与金融</div>
-                    </div>
-                    <div class="p-8 bg-green-50 rounded-2xl text-center">
-                        <div class="text-4xl font-bold text-green-600 mb-2">24/7</div>
-                        <div class="text-sm text-slate-500 uppercase tracking-widest font-bold">智能监控中</div>
-                    </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-5xl font-bold text-white mb-2 tracking-tighter">2</div>
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest">专业学术硕士</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl font-bold text-white mb-2 tracking-tighter">100%</div>
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest">方案定制化</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl font-bold text-white mb-2 tracking-tighter">24/7</div>
+                    <div class="text-xs font-bold text-slate-500 uppercase tracking-widest">智能监控守护</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 text-slate-900">核心规划领域</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto italic font-medium text-lg">
-                    "Data never lies, families deserve protection."
-                </p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-10">
-                <!-- Service 1 -->
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 card-hover">
-                    <div class="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center mb-8">
-                        <i class="fas fa-shield-virus text-2xl text-red-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-slate-900">深度健康保障</h3>
-                    <p class="text-slate-600 mb-6">针对安省高发的重大疾病，通过概率模型计算最合理的保额与保费配比。</p>
-                    <a href="https://wa.me/15144025575" class="text-blue-600 font-bold hover:underline">了解方案 →</a>
-                </div>
-                <!-- Service 2 -->
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 card-hover">
-                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-8">
-                        <i class="fas fa-vault text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-slate-900">分红资产配置</h3>
-                    <p class="text-slate-600 mb-6">利用计量经济学背景，多维度回测分红表现，锁定长线避税增值通道。</p>
-                    <a href="https://wa.me/15144025575" class="text-blue-600 font-bold hover:underline">查看分析 →</a>
-                </div>
-                <!-- Service 3 -->
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 card-hover">
-                    <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-8">
-                        <i class="fas fa-microchip text-2xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-slate-900">全栈技术赋能</h3>
-                    <p class="text-slate-600 mb-6">集成智能投保模型与 AI 助手，让您的财务管理拥有数字化时代的“外挂”。</p>
-                    <a href="https://wa.me/15144025575" class="text-blue-600 font-bold hover:underline">开启体验 →</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
 
-    <!-- Footer / Contact -->
-    <footer class="py-20 gradient-bg text-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-8">开启您的量化理财之旅</h2>
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-16">
-                <a href="https://wa.me/15144025575" class="flex items-center space-x-4 bg-green-500 px-10 py-4 rounded-2xl hover:bg-green-600 transition transform hover:scale-105 shadow-xl shadow-green-900/20 text-xl font-bold">
-                    <i class="fab fa-whatsapp text-2xl"></i>
-                    <span>WhatsApp 实时咨询</span>
-                </a>
-            </div>
-            <div class="text-slate-400 text-sm space-y-2">
-                <p>© 2026 Ping. Li | All Rights Reserved</p>
-                <p>安大略省持牌保险顾问 (Ontario Licensed Advisor)</p>
-                <p>E: pl131125@gmail.com</p>
-            </div>
-        </div>
-    </footer>
+        // Simple Logic for the Interactive Teaser
+        const slider = document.getElementById('deposit-slider');
+        const depositVal = document.getElementById('deposit-val');
+        const resultVal = document.getElementById('result-val');
 
+        slider.oninput = function() {
+            let val = parseInt(this.value);
+            depositVal.innerHTML = '$' + val.toLocaleString();
+            // Mock formula: initial * compound rate * years (simplified for UI)
+            let result = Math.round(val * 1.05 * 25 * 0.48 + val * 25); 
+            resultVal.innerHTML = '$' + result.toLocaleString();
+        }
+    </script>
 </body>
 </html>
