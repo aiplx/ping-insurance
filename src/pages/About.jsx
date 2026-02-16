@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 export default function About() {
+  useDocumentTitle('背景与服务')
+
   return (
     <div className="pt-32 pb-24">
       <div className="max-w-6xl mx-auto px-6">

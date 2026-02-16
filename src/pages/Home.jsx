@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import CompoundCalculator from '../components/CompoundCalculator'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 export default function Home() {
+  useDocumentTitle(null)
+
   return (
     <>
       <section className="relative min-h-screen flex items-center pt-20">
