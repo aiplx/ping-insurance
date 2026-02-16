@@ -19,7 +19,7 @@ body {
   position: absolute;
   width: 600px;
   height: 600px;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(16, 185, 129, 0.15));
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(202, 138, 4, 0.15));
   filter: blur(100px);
   border-radius: 50%;
   z-index: 0;
