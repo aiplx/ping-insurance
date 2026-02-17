@@ -27,11 +27,19 @@ export default function Contact() {
     setStatus('sending')
 
     try {
+      // Debug: Check if env vars are loaded (logging lengths only for security)
+      console.log('Env Check:', {
+        service: SERVICE_ID === 'YOUR_SERVICE_ID' ? 'MISSING' : 'LOADED',
+        template: TEMPLATE_ID === 'YOUR_TEMPLATE_ID' ? 'MISSING' : 'LOADED',
+        key: PUBLIC_KEY === 'YOUR_PUBLIC_KEY' ? 'MISSING' : 'LOADED'
+      });
+
       // 1. Send via EmailJS
-      if (SERVICE_ID !== 'YOUR_SERVICE_ID') {
-        await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
+      if (SERVICE_ID !== 'YOUR_SERVICE_ID' && SERVICE_ID.trim() !== '') {
+        const result = await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
+        console.log('EmailJS Success:', result.text);
       } else {
-        console.warn('EmailJS IDs are not configured. Check Vercel Env Vars.')
+        throw new Error('EmailJS keys are still set to default placeholders.');
       }
       
       // 2. Local Backup (Completely async, detached from UI status)
