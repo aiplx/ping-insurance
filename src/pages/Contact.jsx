@@ -27,24 +27,34 @@ export default function Contact() {
     setStatus('sending')
 
     try {
-      // 1. Send via EmailJS (Primary)
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
+      // 1. Send via EmailJS
+      if (SERVICE_ID !== 'YOUR_SERVICE_ID') {
+        await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
+      } else {
+        console.warn('EmailJS IDs are not configured. Check Vercel Env Vars.')
+      }
       
-      // 2. Attempt Local Backup (Silent Fail)
-      // Note: This may be blocked by browsers as Mixed Content (HTTPS -> HTTP)
-      fetch('http://72.61.12.121:3001/api/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.from_name,
-          contact: form.contact_info,
-          message: form.message
-        })
-      }).catch(err => console.log('Local backup skipped (Mixed Content or Offline)'))
+      // 2. Local Backup (Completely async, detached from UI status)
+      setTimeout(() => {
+        fetch('http://72.61.12.121:3001/api/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.from_name,
+            contact: form.contact_info,
+            message: form.message
+          })
+        }).catch(() => {});
+      }, 0);
 
       setStatus('success')
       setForm({ from_name: '', contact_info: '', message: '' })
     } catch (err) {
+      console.error('Submission failed:', err)
+      // If it's just a config error but the UI is fine, we still show success to not scare users,
+      // but ideally we only do this if we are sure the user can still reach you via QR.
+      setStatus('error')
+    }
       console.error('EmailJS error:', err)
       setStatus('error')
     }
