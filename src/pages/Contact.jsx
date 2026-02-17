@@ -27,11 +27,12 @@ export default function Contact() {
     setStatus('sending')
 
     try {
-      // 1. Send via EmailJS (Remote)
+      // 1. Send via EmailJS (Primary)
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
       
-      // 2. Save to Local Backend (JSONL)
-      await fetch('http://127.0.0.1:3001/api/messages', {
+      // 2. Attempt Local Backup (Silent Fail)
+      // Note: This may be blocked by browsers as Mixed Content (HTTPS -> HTTP)
+      fetch('http://72.61.12.121:3001/api/messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -39,7 +40,7 @@ export default function Contact() {
           contact: form.contact_info,
           message: form.message
         })
-      }).catch(err => console.error('Local storage failed, but email sent:', err))
+      }).catch(err => console.log('Local backup skipped (Mixed Content or Offline)'))
 
       setStatus('success')
       setForm({ from_name: '', contact_info: '', message: '' })
