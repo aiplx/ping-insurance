@@ -3,7 +3,7 @@ import faqs from '../data/faqs.json';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 export default function QA() {
-  useDocumentTitle('知识库 & FAQ');
+  useDocumentTitle('知识库 & FAQ', '加拿大保险常见问题：税务优势、重疾险、分红险、理赔流程等专业解答。');
   const [search, setSearch] = useState('');
 
   const filteredFaqs = useMemo(() => {

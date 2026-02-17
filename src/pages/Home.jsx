@@ -44,7 +44,7 @@ export default function Home() {
       <section className="py-24 bg-slate-900/30 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-center text-white">快速导航</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <Link
               to="/about"
               className="portal-card p-8 rounded-3xl bg-white/5 transition group"
@@ -57,6 +57,19 @@ export default function Home() {
                 了解TSE硕士背景、精算经验及安省专业保障方案。
               </p>
               <span className="text-blue-400 text-sm font-bold">进入页面 →</span>
+            </Link>
+            <Link
+              to="/qa"
+              className="portal-card p-8 rounded-3xl bg-white/5 transition group"
+            >
+              <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mb-6">
+                <i className="fas fa-book-open text-amber-400 text-xl"></i>
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white">知识库 & FAQ</h3>
+              <p className="text-slate-500 text-sm mb-6">
+                税务优势、重疾险、分红险等常见问题专业解答。
+              </p>
+              <span className="text-amber-400 text-sm font-bold">查看知识库 →</span>
             </Link>
             <Link
               to="/license"

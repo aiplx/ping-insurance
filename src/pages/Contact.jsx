@@ -7,11 +7,39 @@ const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_I
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
 
 export default function Contact() {
-  useDocumentTitle('联系我')
+  useDocumentTitle('联系我', '通过微信、WhatsApp或在线留言联系Ping Liang，获取专业保险咨询。')
 
   const formRef = useRef(null)
   const [form, setForm] = useState({ from_name: '', contact_info: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [copied, setCopied] = useState(false)
+
+  const handleCopyWechat = () => {
+    const text = 'aiplxy'
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        setCopied(true)
+        setTimeout(() => setCopied(false), 3000)
+      }).catch(() => {
+        fallbackCopy(text)
+      })
+    } else {
+      fallbackCopy(text)
+    }
+  }
+
+  const fallbackCopy = (text) => {
+    const ta = document.createElement('textarea')
+    ta.value = text
+    ta.style.position = 'fixed'
+    ta.style.opacity = '0'
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    document.body.removeChild(ta)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 3000)
+  }
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -78,8 +106,15 @@ export default function Contact() {
                   alt="WeChat QR Code"
                   className="w-full h-auto rounded-xl"
                 />
-                <p className="text-slate-900 text-center mt-4 font-bold">
-                  微信号: <span className="text-blue-600">aiplxy</span>
+                <p
+                  className="text-slate-900 text-center mt-4 font-bold cursor-pointer group"
+                  onClick={handleCopyWechat}
+                  title="点击复制微信号"
+                >
+                  微信号: <span className="text-blue-600 group-hover:underline">aiplxy</span>
+                  <span className="text-slate-400 text-xs ml-2 opacity-0 group-hover:opacity-100 transition">
+                    点击复制
+                  </span>
                 </p>
               </div>
             </div>
@@ -163,6 +198,18 @@ export default function Contact() {
               )}
             </form>
           </div>
+        </div>
+      </div>
+
+      {/* Toast notification */}
+      <div
+        className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+          copied ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+      >
+        <div className="bg-emerald-500 text-white px-6 py-3 rounded-xl shadow-2xl text-sm font-medium flex items-center space-x-2">
+          <i className="fas fa-check-circle"></i>
+          <span>已复制成功，请到微信端粘贴添加</span>
         </div>
       </div>
     </div>

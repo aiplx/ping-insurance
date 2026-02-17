@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import useDocumentTitle from '../hooks/useDocumentTitle'
 
 export default function About() {
-  useDocumentTitle('背景与服务')
+  useDocumentTitle('背景与服务', '图卢兹经济学院硕士、北京人寿精算经验，专注安省重疾险与分红资产配置方案。')
 
   return (
     <div className="pt-32 pb-24">

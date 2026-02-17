@@ -1,7 +1,7 @@
 import useDocumentTitle from '../hooks/useDocumentTitle'
 
 export default function License() {
-  useDocumentTitle('资质认证')
+  useDocumentTitle('资质认证', '安省FSRA持牌保险顾问，执照号26244390，iA Financial Group授权代理。')
 
   return (
     <div className="pt-32 pb-24">

@@ -5,6 +5,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import License from './pages/License'
 import QA from './pages/QA'
+import Privacy from './pages/Privacy'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/license" element={<License />} />
         <Route path="/qa" element={<QA />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

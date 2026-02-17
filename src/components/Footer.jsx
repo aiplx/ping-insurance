@@ -1,12 +1,40 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Footer() {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopyWechat = () => {
+    const text = 'aiplxy'
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        setCopied(true)
+        setTimeout(() => setCopied(false), 3000)
+      }).catch(() => fallbackCopy(text))
+    } else {
+      fallbackCopy(text)
+    }
+  }
+
+  const fallbackCopy = (text) => {
+    const ta = document.createElement('textarea')
+    ta.value = text
+    ta.style.position = 'fixed'
+    ta.style.opacity = '0'
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    document.body.removeChild(ta)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 3000)
+  }
+
   return (
     <footer className="border-t border-white/5 bg-slate-900/50">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
-          {/* Brand */}
-          <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+          {/* Brand - hidden on mobile, visible on desktop */}
+          <div className="hidden md:block">
             <Link to="/" className="text-2xl font-bold tracking-tighter text-white flex items-center mb-4">
               <span className="text-blue-500 mr-2">●</span> Ping Liang
             </Link>
@@ -41,9 +69,14 @@ export default function Footer() {
                 <i className="fab fa-whatsapp text-lg"></i>
                 <span>+1 514-402-5575</span>
               </a>
-              <div className="flex items-center space-x-3 text-slate-500 text-sm">
+              <div
+                className="flex items-center space-x-3 text-slate-500 text-sm cursor-pointer group hover:text-blue-400 transition"
+                onClick={handleCopyWechat}
+                title="点击复制微信号"
+              >
                 <i className="fab fa-weixin text-lg"></i>
-                <span>微信号: aiplxy</span>
+                <span>微信号: <span className="group-hover:underline">aiplxy</span></span>
+                <span className="text-xs opacity-0 group-hover:opacity-100 transition">点击复制</span>
               </div>
             </div>
           </div>
@@ -63,8 +96,25 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/5 py-6 text-center text-slate-600 text-xs">
-        © {new Date().getFullYear()} Ping Liang | Ontario Licensed Advisor | FSRA Licence #26244390
+      <div className="border-t border-white/5 py-6 text-center text-slate-600 text-xs space-x-4">
+        <span>© {new Date().getFullYear()} Ping Liang</span>
+        <span>|</span>
+        <span>Ontario Licensed Advisor</span>
+        <span>|</span>
+        <span>FSRA Licence #26244390</span>
+        <span>|</span>
+        <Link to="/privacy" className="hover:text-blue-400 transition">隐私政策</Link>
+      </div>
+      {/* Toast notification */}
+      <div
+        className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+          copied ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+      >
+        <div className="bg-emerald-500 text-white px-6 py-3 rounded-xl shadow-2xl text-sm font-medium flex items-center space-x-2">
+          <i className="fas fa-check-circle"></i>
+          <span>已复制成功，请到微信端粘贴添加</span>
+        </div>
       </div>
     </footer>
   )
