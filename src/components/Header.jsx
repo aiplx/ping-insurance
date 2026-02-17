@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 const navLinks = [
   { to: '/about', label: '背景与服务' },
+  { to: '/qa', label: '知识库' },
   { to: '/license', label: '资质' },
   { to: '/contact', label: '联系我' },
 ]

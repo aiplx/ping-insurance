@@ -27,7 +27,20 @@ export default function Contact() {
     setStatus('sending')
 
     try {
+      // 1. Send via EmailJS (Remote)
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
+      
+      // 2. Save to Local Backend (JSONL)
+      await fetch('http://127.0.0.1:3001/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.from_name,
+          contact: form.contact_info,
+          message: form.message
+        })
+      }).catch(err => console.error('Local storage failed, but email sent:', err))
+
       setStatus('success')
       setForm({ from_name: '', contact_info: '', message: '' })
     } catch (err) {

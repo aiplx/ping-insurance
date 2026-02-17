@@ -1,0 +1,2 @@
+Message server running on port 3001
+Messages will be saved to /data/.openclaw/workspace/ping-insurance/messages.jsonl

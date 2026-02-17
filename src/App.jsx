@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import License from './pages/License'
+import QA from './pages/QA'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/license" element={<License />} />
+        <Route path="/qa" element={<QA />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>
