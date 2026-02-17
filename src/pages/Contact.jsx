@@ -51,11 +51,6 @@ export default function Contact() {
       setForm({ from_name: '', contact_info: '', message: '' })
     } catch (err) {
       console.error('Submission failed:', err)
-      // If it's just a config error but the UI is fine, we still show success to not scare users,
-      // but ideally we only do this if we are sure the user can still reach you via QR.
-      setStatus('error')
-    }
-      console.error('EmailJS error:', err)
       setStatus('error')
     }
   }
